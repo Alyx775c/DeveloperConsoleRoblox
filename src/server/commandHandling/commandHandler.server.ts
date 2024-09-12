@@ -20,7 +20,6 @@ if (DevConsoleFire?.IsA("RemoteFunction")) {
 			let splitSpaceArgs = stringArgs.split(" ");
 
 			commandName = splitSpaceArgs[0].lower();
-			print(commandName);
 			splitSpaceArgs.shift();
 
 			if (Commands[commandName]) {
