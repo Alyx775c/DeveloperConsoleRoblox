@@ -1,7 +1,16 @@
 import { Players } from "@rbxts/services";
 import CommandOutput from "./ConsoleHandler/commandOutput";
 
-const ValidPlayers: string[] = [""];
+const ValidPlayers: string[] = ["TheNewDragon75240"];
+
+const GrepPlayerbyPartial = (name: string): Instance | undefined => {
+    for (let player of Players.GetPlayers()) {	
+		if (player.Name.sub(1, name.size()) === name)
+		{
+			return player;
+		}
+	}
+};
 
 const Commands: Record<string, (player: Player, args: string[]) => CommandOutput> = {
 	ping: () => {
@@ -42,10 +51,29 @@ const Commands: Record<string, (player: Player, args: string[]) => CommandOutput
 			return new CommandOutput("Not enough args", "Red");
 		}
 
-		let target = Players.FindFirstChild(args[0]) as Player;
-		target.Kick("Kicked by console");
+		let target = GrepPlayerbyPartial(args[0]) as Player;
 
-		return new CommandOutput(`Kicked ${target.Name}`, "Green");
+		if (target) {
+			target.Kick();
+			return new CommandOutput(`Kicked ${target.Name}`, "Green");
+		} else {
+			return new CommandOutput("Player not found", "Red");
+		}
+	},
+	teleport: (plr: Player, args: string[]) => {
+		if (args.size() > 2) {
+			return new CommandOutput("Too many args", "Red");
+		} else if (args.size() < 2) {
+			return new CommandOutput("Not enough args", "Red");
+		}
+
+		const humanoid = plr.Character?.FindFirstChild("Humanoid") as Humanoid;
+		const rootPart = humanoid.RootPart as BasePart;
+
+		let posArr: number[] = [args[1] as unknown as number, args[2] as unknown as number];
+		rootPart.Position = new Vector3(posArr[0], rootPart.Position.Y, posArr[1]);
+
+		return new CommandOutput("idk", "White");
 	},
 };
 
