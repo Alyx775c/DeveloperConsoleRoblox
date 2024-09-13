@@ -9,8 +9,11 @@ const SendTextEvent = EventsFolder?.FindFirstChild("InputSending") as RemoteEven
 
 function OnPlayer(player: Player) {
 	if (ValidPlayers.includes(player.Name)) {
-		let gui = ServerStorage.WaitForChild("ConsoleGui") as ScreenGui;
-		gui.Parent = player.WaitForChild("PlayerGui");
+		let playerGUI = player.WaitForChild("PlayerGui") as PlayerGui;
+
+		let gui = ServerStorage.FindFirstChild("ConsoleGui") as ScreenGui;
+		gui.ResetOnSpawn = false;
+		gui.Parent = playerGUI;
 
 		ConsoleAddedEvent.FireClient(player, gui);
 	}
