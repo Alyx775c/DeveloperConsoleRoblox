@@ -1,5 +1,5 @@
 {
-	"name": "roblox-ts-game",
+	"name": "developer-console",
 	"globIgnorePaths": [
 		"**/package.json",
 		"**/tsconfig.json"
@@ -28,10 +28,10 @@
 			},
 			"Events": {
 				"$className": "Folder",
-				"DevConsoleFire": {
-					"$className": "RemoteFunction"
+				"ConsoleAdded": {
+					"$className": "RemoteEvent"
 				},
-				"GetUI": {
+				"InputSending": {
 					"$className": "RemoteEvent"
 				}
 			}

@@ -1,22 +1,35 @@
-# DevConsoleTS
+# Alyx's Developer Console
 
-## Project Overview
+Alyx's Developer Console is meant to be used by admins or developers while development or moderation.
 
-DevConsoleTS is a development console tool for Roblox game development. It provides a convenient interface for Roblox game developers to interact with their game during the development process.
+## Compilation
 
-## Features
+```shell
+yarn
+yarn build
+```
 
-- Execute commands directly from the console
-- Handle errors and exceptions efficiently
-- Manage UI elements for improved development workflow
-- Output information and debug messages
+or
 
-## Technologies Used
+```shell
+yarn watch
+( optional, rojo build )
+rojo serve
+```
 
-- TypeScript: Primary language for development
-- Roblox-TS: Compiler for converting TypeScript to Lua for Roblox
-- ESLint: For code linting
-- Prettier: For code formatting
-- Yarn: Package manager
+## Usage
 
-## Project Structure
+First you need to edit the **Players** record inside of commands.ts
+
+Then edit the Commands record to add your own commands
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first
+to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
