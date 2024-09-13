@@ -17,4 +17,4 @@
 *.vsix
 
 *.rbxl*
-1
+|example.rbxl

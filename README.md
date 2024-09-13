@@ -21,7 +21,7 @@ rojo serve
 
 First you need to edit the **Players** record inside of commands.ts
 
-Then edit the Commands record to add your own commands
+Then edit the **Commands** record to add your own commands
 
 ## Contributing
 
